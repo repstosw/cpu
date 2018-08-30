@@ -6,9 +6,9 @@ module alu_xor_tb;
     reg [15:0] a,b;
     reg [3:0] ctl;
     wire [15:0] y;
-    wire z;
+    wire z, sign;
 
-    alu uut(a, b, ctl, y, z);
+    alu uut(a, b, ctl, y, z, sign);
 
     initial begin
         a = 25;
@@ -25,7 +25,7 @@ module alu_xor_tb;
     end
 
     initial begin
-        $monitor("ctl=%d a=%16b b=%16b y=%16b z=%1b", ctl, a, b, y, z);
+        $monitor("ctl=%d a=%16b b=%16b y=%16b z=%1b sign=%1b", ctl, a, b, y, z, sign);
     end
 endmodule
 

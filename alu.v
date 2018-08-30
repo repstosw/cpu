@@ -16,10 +16,12 @@ module alu(
     input [15:0] a, b,
     input [3:0] control,
     output reg [15:0] y,
-    output zero);
+    output zero,
+    output sign);
 
-    // zero flag
+    // zero/sign flags
     assign zero = (0 == y);
+    assign sign = y[15]; 
 
     always @(*) begin
         case (control)
